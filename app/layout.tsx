@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -27,8 +28,15 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen bg-white text-black antialiased">
+        <Script id="gt-skip-loading" strategy="beforeInteractive">
+          {`try{if(sessionStorage.getItem('gt-loading-seen')==='1')document.documentElement.classList.add('gt-skip-loading')}catch(e){}`}
+        </Script>
         {children}
       </body>
     </html>

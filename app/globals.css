@@ -27,3 +27,7 @@ body {
   background: #FAEEDE;
   color: #9F6B2F;
 }
+
+.gt-skip-loading [data-gt-loading] {
+  display: none !important;
+}
