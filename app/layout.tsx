@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Gentheory | The Future of TCM Inspired Wellness",
   description:
     "Discover Gentheory, a modern wellness brand inspired by Traditional Chinese Medicine and powered by science backed ingredients like Tremella mushroom to support radiant skin, longevity, and daily vitality.",
-  icons: { icon: "/images/logo-mark.png" },
+  icons: { icon: "/images/logo-mark.jpg" },
 };
 
 export default function RootLayout({
