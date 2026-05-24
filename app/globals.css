@@ -3,6 +3,7 @@
 @theme {
   --color-brand-orange: #9F6B2F;
   --color-brand-cream: #FAEEDE;
+  --color-brand-red: #780414;
 }
 
 @theme inline {
