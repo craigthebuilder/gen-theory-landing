@@ -11,7 +11,7 @@ if (typeof window !== "undefined") {
 
 const TITLE = "Tremella, the beauty mushroom";
 const BODY =
-  "Known colloquially as the original “fountain of youth”, Tremella, or Snow Mushroom, has been used in Traditional Chinese Medicine to support luminous skin, deep hydration, and graceful aging. Naturally rich in skin loving polysaccharides that help support collagen production and moisture retention, Tremella supports natural bodily processes that promote a smoother, plumper, more radiant glow.";
+  "Known as the original “fountain of youth”, Tremella fuciformis, or the Snow Mushroom, has been treasured for centuries for it's skin hydrating effects. Today, clinical studies demonstrate additional benefits linked to anti-inflammatory, flattening, and anti-aging support. Found in the misty mountain forests of southern China, our Tremella is sustainably foraged and carefully stored to preserve it's delicate structure and potent properties.";
 
 export default function Tremella() {
   const sectionRef = useRef<HTMLElement>(null);

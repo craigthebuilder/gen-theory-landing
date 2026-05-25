@@ -15,7 +15,7 @@ export default function Hero() {
 
   const handleJoinClick = useCallback(() => {
     gsap.to(window, {
-      duration: 1.5,
+      duration: 0.6,
       scrollTo: { y: "#waitlist", offsetY: 0 },
       ease: "power2.inOut",
     });
@@ -73,7 +73,7 @@ export default function Hero() {
       {/* Desktop: full-bleed landscape composition with button overlaid */}
       <div className="hidden md:block relative h-full w-full">
         <Image
-          src="/images/hero-tree-expanded.png"
+          src="/images/hero-tree-expanded-new.png"
           alt="Gen Theory"
           fill
           priority
@@ -83,7 +83,7 @@ export default function Hero() {
         <button
           type="button"
           onClick={handleJoinClick}
-          className="absolute bottom-[6%] left-1/2 -translate-x-1/2 px-10 py-3.5 border border-brand-orange text-brand-orange font-sans text-xs uppercase tracking-[0.22em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
+          className="absolute bottom-[22%] left-1/2 -translate-x-1/2 px-10 py-3.5 border border-brand-orange text-brand-orange font-sans text-xs uppercase tracking-[0.22em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
         >
           Join now
         </button>

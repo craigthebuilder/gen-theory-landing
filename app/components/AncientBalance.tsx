@@ -9,9 +9,9 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const TITLE = "Ancient balance, reimagined for modern life";
+const TITLE = "Ancient balance, reimagined";
 const BODY =
-  "Traditional Chinese Medicine wasn’t built in a lab. It was built over thousands of years of careful observation — of seasons, of bodies, of what it means to feel well over a lifetime. Formulated by Traditional Chinese Medicine practitioners with over 30 years of experience, our offerings are intended as long-term rituals that are designed to restore balance and harmony within the body and it’s environment.";
+  "Traditional Chinese Medicine wasn’t built in a lab. It was crafted over thousands of years of careful observation — of seasons, of bodies, and of what it means to thrive over a lifetime. Formulated by certified practitioners with decades of experience practicing Traditional Chinese Medicine, our offerings are designed to restore balance and harmony within the body and it’s environment.";
 
 export default function AncientBalance() {
   const sectionRef = useRef<HTMLElement>(null);
