@@ -15,7 +15,7 @@ export default function Hero() {
 
   const handleJoinClick = useCallback(() => {
     gsap.to(window, {
-      duration: 0.6,
+      duration: 0.2,
       scrollTo: { y: "#waitlist", offsetY: 0 },
       ease: "power2.inOut",
     });

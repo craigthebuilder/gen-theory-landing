@@ -22,7 +22,6 @@ const RATE_LIMIT_MS = 2000;
 export default function Waitlist() {
   const sectionRef = useRef<HTMLElement>(null);
   const [email, setEmail] = useState("");
-  const [submitting, setSubmitting] = useState(false);
   const lastSubmitRef = useRef<number>(0);
 
   useEffect(() => {
@@ -50,9 +49,8 @@ export default function Waitlist() {
     return () => ctx.revert();
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (submitting) return;
 
     // Client-side rate limit: one submit per 2s per session
     const now = Date.now();
@@ -67,17 +65,37 @@ export default function Waitlist() {
     }
 
     lastSubmitRef.current = now;
-    setSubmitting(true);
 
-    // TODO: POST to NEXT_PUBLIC_SHEETS_WEBHOOK_URL once Apps Script is deployed.
-    // For now, simulate success so we can verify the UX flow.
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 200));
-      toast.success(SUCCESS_MESSAGE);
-      setEmail("");
-    } finally {
-      setSubmitting(false);
+    // OPTIMISTIC UI: show the success toast and clear the field immediately
+    // so the user gets instant feedback. The Apps Script round-trip can
+    // take 1-3 seconds; we don't make the user wait. The fetch fires in
+    // the background; failures are logged to console.
+    toast.success(SUCCESS_MESSAGE);
+    setEmail("");
+
+    const webhookUrl = process.env.NEXT_PUBLIC_SHEETS_WEBHOOK_URL;
+    if (!webhookUrl) {
+      if (typeof window !== "undefined") {
+        console.warn(
+          "NEXT_PUBLIC_SHEETS_WEBHOOK_URL is not set; submission skipped."
+        );
+      }
+      return;
     }
+
+    // text/plain avoids the CORS preflight Apps Script doesn't handle
+    // cleanly. mode: 'no-cors' means we can't read the response — the row
+    // still appends; verify via the linked Google Sheet.
+    fetch(webhookUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ email: value }),
+    }).catch((err) => {
+      if (typeof window !== "undefined") {
+        console.error("Waitlist submit failed:", err);
+      }
+    });
   };
 
   return (
@@ -118,8 +136,7 @@ export default function Waitlist() {
           <button
             type="submit"
             aria-label="Submit email"
-            disabled={submitting}
-            className="flex items-center justify-center w-10 h-10 text-brand-orange hover:text-brand-red focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 transition-colors duration-300 disabled:opacity-50"
+            className="flex items-center justify-center w-10 h-10 text-brand-orange hover:text-brand-red focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 transition-colors duration-300"
           >
             <svg
               width="22"
