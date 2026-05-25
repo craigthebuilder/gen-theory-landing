@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
-import Script from "next/script";
+import ClientToaster from "./components/ClientToaster";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -34,10 +34,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-screen bg-white text-black antialiased">
-        <Script id="gt-skip-loading" strategy="beforeInteractive">
-          {`try{if(sessionStorage.getItem('gt-loading-seen')==='1')document.documentElement.classList.add('gt-skip-loading')}catch(e){}`}
-        </Script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem('gt-loading-seen')==='1')document.documentElement.classList.add('gt-skip-loading')}catch(e){}`,
+          }}
+        />
         {children}
+        <ClientToaster />
       </body>
     </html>
   );
