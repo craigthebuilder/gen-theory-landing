@@ -10,8 +10,15 @@ if (typeof window !== "undefined") {
 }
 
 const TITLE = "Ancient balance, reimagined";
-const BODY =
-  "Traditional Chinese Medicine wasn’t built in a lab. It was crafted over thousands of years of careful observation — of seasons, of bodies, and of what it means to thrive over a lifetime. Formulated by certified practitioners with decades of experience practicing Traditional Chinese Medicine, our offerings are designed to restore balance and harmony within the body and it’s environment.";
+
+// BODY is an array of paragraphs. Each item becomes its own <p> with a
+// gap between it and the next. To add a paragraph break, add a new
+// string to the array. To remove one, delete the line.
+const BODY = [
+  "In Chinese, 根源 (gēnyuán) means origin — the source from which everything grows.",
+  "Traditional Chinese Medicine was shaped over thousands of years through quiet observation: of nature, of seasons, and of the body’s changing rhythms. At its core is a simple belief — that true wellness begins at the root.","We named this brand after that philosophy. A belief that true radiance is not applied, but cultivated slowly from within, through nourishment, balance, and time.",
+  "This is where we begin.",
+];
 
 export default function AncientBalance() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -95,22 +102,30 @@ export default function AncientBalance() {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden bg-white"
     >
-      {/* Mobile: stacked */}
-      <div className="flex md:hidden min-h-screen w-full flex-col items-center justify-center px-6 py-20 gap-8">
+      {/* Mobile: stacked. Image full-bleed (w-full, no horizontal padding on
+          this container); text gets its own px-6. */}
+      <div className="flex md:hidden min-h-screen w-full flex-col items-center justify-center py-12 gap-6">
         <Image
           src="/images/root-left.png"
           alt=""
           width={920}
           height={987}
-          className="h-[38vh] w-auto max-w-[85vw] object-contain"
+          className="w-full h-auto object-contain"
         />
-        <div className="text-center max-w-md">
+        <div className="text-center max-w-md px-6">
           <h2 className="font-serif text-3xl text-brand-orange leading-[1.1] mb-5">
             {TITLE}
           </h2>
-          <p className="font-sans text-sm text-black/80 leading-relaxed">
-            {BODY}
-          </p>
+          <div className="space-y-4">
+            {BODY.map((paragraph, i) => (
+              <p
+                key={i}
+                className="font-sans text-sm text-black/80 leading-relaxed"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -138,9 +153,16 @@ export default function AncientBalance() {
             <h2 className="font-serif text-4xl lg:text-5xl text-brand-orange leading-[1.1] mb-6">
               {TITLE}
             </h2>
-            <p className="font-sans text-base lg:text-[17px] text-black/80 leading-[1.7]">
-              {BODY}
-            </p>
+            <div className="space-y-5">
+              {BODY.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="font-sans text-base lg:text-[17px] text-black/80 leading-[1.7]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>

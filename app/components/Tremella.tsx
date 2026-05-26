@@ -10,8 +10,16 @@ if (typeof window !== "undefined") {
 }
 
 const TITLE = "Tremella, the beauty mushroom";
-const BODY =
-  "Known as the original “fountain of youth”, Tremella fuciformis, or the Snow Mushroom, has been treasured for centuries for it's skin hydrating effects. Today, clinical studies demonstrate additional benefits linked to anti-inflammatory, flattening, and anti-aging support. Found in the misty mountain forests of southern China, our Tremella is sustainably foraged and carefully stored to preserve it's delicate structure and potent properties.";
+
+// BODY is an array of paragraphs. Each item becomes its own <p> with a
+// gap between it and the next. To add a paragraph break, add a new
+// string to the array. To remove one, delete the line.
+const BODY = [
+  "Meet 銀耳 — silver ear mushroom.",
+  "For over 2,000 years, Tremella has been treasured in Chinese medicine and court beauty rituals for one purpose: deep, lasting hydration from within. Delicate in appearance yet remarkably powerful, it became known as the “beauty mushroom” for the luminous, dewy skin it was believed to support.",
+  "Modern research now confirms what practitioners long understood. Tremella's polysaccharides can retain up to 500 times their weight in water — often surpassing hyaluronic acid in moisture retention molecule for molecule — while offering antioxidant and skin-supportive benefits.",
+  "We're slowly cooking up something to brighten your daily rituals.",
+];
 
 export default function Tremella() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -91,22 +99,30 @@ export default function Tremella() {
       ref={sectionRef}
       className="relative min-h-screen w-full overflow-hidden bg-white"
     >
-      {/* Mobile: stacked */}
-      <div className="flex md:hidden min-h-screen w-full flex-col items-center justify-center px-6 py-20 gap-8">
+      {/* Mobile: stacked. Image full-bleed (w-full, no horizontal padding on
+          this container); text gets its own px-6. */}
+      <div className="flex md:hidden min-h-screen w-full flex-col items-center justify-center py-12 gap-6">
         <Image
           src="/images/root-right-tremella.png"
           alt=""
           width={906}
           height={957}
-          className="h-[38vh] w-auto max-w-[85vw] object-contain"
+          className="w-full h-auto object-contain"
         />
-        <div className="text-center max-w-md">
+        <div className="text-center max-w-md px-6">
           <h2 className="font-serif text-3xl text-brand-orange leading-[1.1] mb-5">
             {TITLE}
           </h2>
-          <p className="font-sans text-sm text-black/80 leading-relaxed">
-            {BODY}
-          </p>
+          <div className="space-y-4">
+            {BODY.map((paragraph, i) => (
+              <p
+                key={i}
+                className="font-sans text-sm text-black/80 leading-relaxed"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -134,9 +150,16 @@ export default function Tremella() {
             <h2 className="font-serif text-4xl lg:text-5xl text-brand-orange leading-[1.1] mb-6">
               {TITLE}
             </h2>
-            <p className="font-sans text-base lg:text-[17px] text-black/80 leading-[1.7]">
-              {BODY}
-            </p>
+            <div className="space-y-5">
+              {BODY.map((paragraph, i) => (
+                <p
+                  key={i}
+                  className="font-sans text-base lg:text-[17px] text-black/80 leading-[1.7]"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -11,10 +11,10 @@ if (typeof window !== "undefined") {
 }
 
 // === Editable copy ===
-const HEADING = "Join our community";
+const HEADING = "Begin your ritual";
 const INVALID_EMAIL_MESSAGE = "Invalid email";
 const SUCCESS_MESSAGE =
-  "Success! You have been prioritized to unlock the future of TCM inspired wellness.";
+  "You're in. Something rooted in tradition — and made for now — is almost here.";
 // ======================
 
 const RATE_LIMIT_MS = 2000;
@@ -102,7 +102,7 @@ export default function Waitlist() {
     <section
       ref={sectionRef}
       id="waitlist"
-      className="relative min-h-screen w-full flex flex-col items-center justify-center bg-white px-6 py-20"
+      className="relative min-h-screen w-full flex flex-col items-center justify-center bg-white px-6 py-12"
     >
       {/* Container is w-fit so it sizes to the widest child (the heading);
           the form below uses w-full to match the heading's rendered width. */}

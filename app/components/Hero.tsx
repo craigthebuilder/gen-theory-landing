@@ -51,43 +51,47 @@ export default function Hero() {
       id="hero"
       className="relative h-screen w-full overflow-hidden bg-white"
     >
-      {/* Mobile: portrait composition, image contained with button below */}
-      <div className="flex md:hidden h-full w-full flex-col items-center justify-center px-4">
-        <Image
-          src="/images/hero-tree.png"
-          alt="Gen Theory"
-          width={921}
-          height={1152}
-          priority
-          className="h-[70vh] w-auto max-w-[92vw] object-contain"
-        />
-        <button
-          type="button"
-          onClick={handleJoinClick}
-          className="mt-8 px-10 py-3.5 border border-brand-orange text-brand-orange font-sans text-xs uppercase tracking-[0.22em] transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
-        >
-          Join now
-        </button>
-      </div>
+      {/* Background — full-bleed on both mobile and desktop. Mobile crops the
+          sides because New-hero is landscape; per user direction that's OK. */}
+      <Image
+        src="/images/New-hero.png"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
 
-      {/* Desktop: full-bleed landscape composition with button overlaid */}
-      <div className="hidden md:block relative h-full w-full">
-        <Image
-          src="/images/hero-tree-expanded-new.png"
-          alt="Gen Theory"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <button
-          type="button"
-          onClick={handleJoinClick}
-          className="absolute bottom-[22%] left-1/2 -translate-x-1/2 px-10 py-3.5 border border-brand-orange text-brand-orange font-sans text-xs uppercase tracking-[0.22em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
-        >
-          Join now
-        </button>
-      </div>
+      {/* Soft dark scrim behind the logo — lifts it from busy parts of the
+          background image without applying anything to the logo itself.
+          Radial gradient fades out so no hard edges show. */}
+      <div
+        aria-hidden="true"
+        className="absolute left-[49%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140vw] md:w-[100vw] max-w-[1600px] aspect-[2/1] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 65%)",
+        }}
+      />
+
+      {/* Cream logo overlay. left-[49%] / top-1/2 is the current finalized
+          position; tweak `w-[NNvw]` to resize. */}
+      <Image
+        src="/images/gen-logo-cream.png"
+        alt="Gen Theory"
+        width={4016}
+        height={2481}
+        priority
+        className="absolute left-[49%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[105vw] md:w-[70vw] max-w-[1100px] h-auto object-contain pointer-events-none drop-shadow-[0_3px_8px_rgba(0,0,0,0.85)] drop-shadow-[0_20px_72px_rgba(0,0,0,1)] drop-shadow-[0_36px_120px_rgba(0,0,0,0.55)]"
+      />
+
+      <button
+        type="button"
+        onClick={handleJoinClick}
+        className="absolute bottom-[20%] md:bottom-[24%] left-1/2 -translate-x-1/2 px-8 md:px-14 py-3 md:py-4 border border-brand-orange text-brand-orange font-sans text-xs md:text-sm uppercase tracking-[0.22em] md:tracking-[0.25em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
+      >
+        Join now
+      </button>
     </section>
   );
 }

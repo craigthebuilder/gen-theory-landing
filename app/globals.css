@@ -7,8 +7,11 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-cormorant);
+  /* Both font-sans and font-serif Tailwind utilities map to Swei now —
+     a single typeface covers the whole site. Headings use Semibold (600)
+     via the rule below; body inherits Regular (400) from body. */
+  --font-sans: var(--font-swei);
+  --font-serif: var(--font-swei);
 }
 
 html {
@@ -18,9 +21,16 @@ html {
 body {
   background: #FFFFFF;
   color: #000000;
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-swei), system-ui, sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings default to Semibold (600) since the site uses Swei Spring
+   Sugar everywhere and the brand calls for heading weight contrast. */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
 }
 
 ::selection {
