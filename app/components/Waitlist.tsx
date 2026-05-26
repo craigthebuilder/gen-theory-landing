@@ -131,16 +131,14 @@ export default function Waitlist() {
             autoComplete="email"
             inputMode="email"
             aria-label="Email address"
-            className="flex-1 min-w-0 bg-transparent font-sans text-base text-black placeholder:text-black/40 focus:outline-none py-3"
+            className="flex-1 min-w-0 bg-transparent font-sans text-sm md:text-base text-black placeholder:text-black/40 focus:outline-none py-2 md:py-3"
           />
           <button
             type="submit"
             aria-label="Submit email"
-            className="flex items-center justify-center w-10 h-10 text-brand-orange hover:text-brand-red focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 transition-colors duration-300"
+            className="flex items-center justify-center w-8 h-8 md:w-10 md:h-10 text-brand-orange hover:text-brand-red focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 transition-colors duration-300"
           >
             <svg
-              width="22"
-              height="22"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -148,6 +146,7 @@ export default function Waitlist() {
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
+              className="w-[18px] h-[18px] md:w-[22px] md:h-[22px]"
             >
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />

@@ -88,7 +88,7 @@ export default function Hero() {
       <button
         type="button"
         onClick={handleJoinClick}
-        className="absolute bottom-[28%] md:bottom-[24%] left-1/2 -translate-x-1/2 px-6 md:px-14 py-2.5 md:py-4 border border-brand-orange text-brand-orange font-sans text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
+        className="absolute bottom-[36%] md:bottom-[24%] left-1/2 -translate-x-1/2 px-6 md:px-14 py-2.5 md:py-4 border border-brand-orange text-brand-orange font-sans text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
       >
         Join now
       </button>
