@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 const HEADING = "Begin your ritual";
 const INVALID_EMAIL_MESSAGE = "Invalid email";
 const SUCCESS_MESSAGE =
-  "You're in. Something rooted in tradition — and made for now — is almost here.";
+  "You're in. Your new daily ritual is almost here.";
 // ======================
 
 const RATE_LIMIT_MS = 2000;
