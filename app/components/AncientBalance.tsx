@@ -27,13 +27,11 @@ export default function AncientBalance() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    if (window.innerWidth < 768) return;
+    const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
-      // ONE timeline manages section opacity end-to-end (fade-in → hold →
-      // fade-out) so two ScrollTriggers can't fight over the same property.
-      // Trigger spans entry-to-exit of the section, scrub ties timeline
-      // progress 1:1 to scroll position.
+      // Section opacity fade-in → hold → fade-out runs on BOTH mobile and
+      // desktop so both views get the section-to-section crossfade feel.
       const sectionTL = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -44,22 +42,22 @@ export default function AncientBalance() {
       });
 
       sectionTL
-        // Fade in: 0–15% of the timeline = first ~28vh of scroll past entry
         .fromTo(
           sectionRef.current,
           { opacity: 0, scale: 0.94 },
           { opacity: 1, scale: 1, ease: "power2.out", duration: 0.15 },
           0
         )
-        // Implicit hold from 0.15 → 0.55 (~76vh of scroll dwell time)
-        // Fade out: 55–100% of the timeline = last ~85vh of scroll, linear
         .to(
           sectionRef.current,
           { opacity: 0, ease: "none", duration: 0.45 },
           0.55
         );
 
-      // Root slides in from the left edge as the section enters view
+      // Root slide and text rise only on desktop — those refs are attached
+      // to absolute-positioned elements that are hidden on mobile.
+      if (isMobile) return;
+
       gsap.fromTo(
         rootRef.current,
         { opacity: 0, x: -40 },
@@ -76,7 +74,6 @@ export default function AncientBalance() {
         }
       );
 
-      // Text rises in slightly behind the root
       gsap.fromTo(
         textRef.current,
         { opacity: 0, y: 40 },

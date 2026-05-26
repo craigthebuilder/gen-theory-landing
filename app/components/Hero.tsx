@@ -82,13 +82,13 @@ export default function Hero() {
         width={4016}
         height={2481}
         priority
-        className="absolute left-[49%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[105vw] md:w-[70vw] max-w-[1100px] h-auto object-contain pointer-events-none drop-shadow-[0_3px_8px_rgba(0,0,0,0.85)] drop-shadow-[0_20px_72px_rgba(0,0,0,1)] drop-shadow-[0_36px_120px_rgba(0,0,0,0.55)]"
+        className="absolute left-[49%] top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] md:w-[70vw] max-w-[1100px] h-auto object-contain pointer-events-none drop-shadow-[0_3px_8px_rgba(0,0,0,0.85)] drop-shadow-[0_20px_72px_rgba(0,0,0,1)] drop-shadow-[0_36px_120px_rgba(0,0,0,0.55)]"
       />
 
       <button
         type="button"
         onClick={handleJoinClick}
-        className="absolute bottom-[20%] md:bottom-[24%] left-1/2 -translate-x-1/2 px-8 md:px-14 py-3 md:py-4 border border-brand-orange text-brand-orange font-sans text-xs md:text-sm uppercase tracking-[0.22em] md:tracking-[0.25em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
+        className="absolute bottom-[28%] md:bottom-[24%] left-1/2 -translate-x-1/2 px-6 md:px-14 py-2.5 md:py-4 border border-brand-orange text-brand-orange font-sans text-[11px] md:text-sm uppercase tracking-[0.2em] md:tracking-[0.25em] bg-white/85 backdrop-blur-sm transition-colors duration-500 ease-out hover:bg-brand-orange hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2"
       >
         Join now
       </button>

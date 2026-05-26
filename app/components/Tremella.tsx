@@ -28,11 +28,11 @@ export default function Tremella() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    if (window.innerWidth < 768) return;
+    const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
-      // Single timeline manages section opacity end-to-end (fade-in → hold →
-      // fade-out) so two ScrollTriggers can't fight over the same property.
+      // Section opacity fade-in → hold → fade-out runs on BOTH mobile and
+      // desktop so both views get the section-to-section crossfade feel.
       const sectionTL = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -49,14 +49,16 @@ export default function Tremella() {
           { opacity: 1, scale: 1, ease: "power2.out", duration: 0.15 },
           0
         )
-        // Implicit hold at opacity 1 from 0.15 → 0.55
         .to(
           sectionRef.current,
           { opacity: 0, ease: "none", duration: 0.45 },
           0.55
         );
 
-      // Root with Tremella slides in from the right edge
+      // Root slide and text rise only on desktop — those refs are attached
+      // to absolute-positioned elements that are hidden on mobile.
+      if (isMobile) return;
+
       gsap.fromTo(
         rootRef.current,
         { opacity: 0, x: 40 },
@@ -73,7 +75,6 @@ export default function Tremella() {
         }
       );
 
-      // Text rises in slightly behind the root
       gsap.fromTo(
         textRef.current,
         { opacity: 0, y: 40 },

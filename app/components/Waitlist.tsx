@@ -26,9 +26,9 @@ export default function Waitlist() {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    if (window.innerWidth < 768) return;
 
     const ctx = gsap.context(() => {
+      // Section fade-in runs on both mobile and desktop.
       gsap.fromTo(
         sectionRef.current,
         { opacity: 0, scale: 0.94 },
