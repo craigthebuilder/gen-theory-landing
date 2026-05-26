@@ -16,7 +16,7 @@ const TITLE = "Ancient balance, reimagined";
 // string to the array. To remove one, delete the line.
 const BODY = [
   "In Chinese, 根源 (gēnyuán) means origin — the source from which everything grows.",
-  "Traditional Chinese Medicine was shaped over thousands of years through quiet observation: of nature, of seasons, and of the body’s changing rhythms. At its core is a simple belief — that true wellness begins at the root.","We named this brand after that philosophy. A belief that true radiance is not applied, but cultivated slowly from within, through nourishment, balance, and time.",
+  "Traditional Chinese Medicine was shaped over thousands of years through quiet observation: of nature, of seasons, and of the body's changing rhythms. At its core is a simple belief — that true wellness begins at the root.","We named this brand after that philosophy. A belief that true radiance is not applied, but cultivated slowly from within, through nourishment, balance, and time.",
   "This is where we begin.",
 ];
 
