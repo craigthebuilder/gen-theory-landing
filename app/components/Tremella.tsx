@@ -104,10 +104,10 @@ export default function Tremella() {
           this container); text gets its own px-6. */}
       <div className="flex md:hidden min-h-screen w-full flex-col items-center justify-center py-12 gap-6">
         <Image
-          src="/images/root-right-tremella.png"
+          src="/images/tremella-new.jpg"
           alt=""
-          width={906}
-          height={957}
+          width={1448}
+          height={1086}
           className="w-full h-auto object-contain"
         />
         <div className="text-center max-w-md px-6">
@@ -135,7 +135,7 @@ export default function Tremella() {
           style={{ opacity: 0 }}
         >
           <Image
-            src="/images/root-right-tremella.png"
+            src="/images/tremella-new.jpg"
             alt=""
             fill
             sizes="50vw"
